@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Package, Calendar, AlertTriangle, CheckCircle2, Filter, Sparkles } from 'lucide-react';
 
+/**
+ * Indian Crop Fertilizer Recommendation View & Schedule Engine
+ */
+
 interface IndianCropFertilizerSpec {
   id: string;
   name: string;
