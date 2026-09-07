@@ -71,26 +71,18 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const [profile, setProfile] = useState<FarmProfile>({
-    name: 'Ramesh Kumar',
-    mobile: '9876543210',
-    locationName: 'Guntur, Andhra Pradesh',
-    primaryCrop: 'Cotton',
-    farmSizeAcres: '3.5',
-    language: 'en',
-    isGuest: false,
-  });
+  const [profile, setProfile] = useState<FarmProfile | null>(null);
 
-  // Load saved history & profile from LocalStorage on mount
+  // Load saved history & active user profile from LocalStorage on mount
   useEffect(() => {
     try {
       const savedHistory = localStorage.getItem('kisan_mitra_history');
       if (savedHistory) {
         setHistory(JSON.parse(savedHistory));
       }
-      const savedProfile = localStorage.getItem('kisan_mitra_profile');
-      if (savedProfile) {
-        setProfile(JSON.parse(savedProfile));
+      const activeUser = localStorage.getItem('agrimind_active_user');
+      if (activeUser) {
+        setProfile(JSON.parse(activeUser));
       }
     } catch (e) {
       console.warn('LocalStorage error:', e);
@@ -153,7 +145,14 @@ export function App() {
     setProfile(updated);
     setLanguage(updated.language || 'en');
     try {
-      localStorage.setItem('kisan_mitra_profile', JSON.stringify(updated));
+      localStorage.setItem('agrimind_active_user', JSON.stringify(updated));
+    } catch (e) {}
+  };
+
+  const handleLogout = () => {
+    setProfile(null);
+    try {
+      localStorage.removeItem('agrimind_active_user');
     } catch (e) {}
   };
 
@@ -257,7 +256,7 @@ export function App() {
 
         {activeTab === 'dashboard' && (
           <FarmerDashboard
-            profile={profile}
+            profile={profile || { name: 'Guest Farmer', mobile: 'Not Logged In', locationName: 'Guntur, AP', primaryCrop: 'Cotton' as any, farmSizeAcres: '3.5', language: 'en', isGuest: true }}
             weatherData={weatherData || ({} as any)}
             latestDiagnosis={currentDiagnosis}
             historyCount={history.length}
@@ -301,6 +300,7 @@ export function App() {
         onClose={() => setShowOnboarding(false)}
         profile={profile}
         onSaveProfile={handleSaveProfile}
+        onLogout={handleLogout}
       />
 
       {/* Footer */}

@@ -11,7 +11,7 @@ interface NavbarProps {
   setActiveTab: (tab: string) => void;
   language: Language;
   setLanguage: (lang: Language) => void;
-  profile: FarmProfile;
+  profile: FarmProfile | null;
   onOpenOnboarding: () => void;
   locationName: string;
 }
@@ -101,7 +101,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               title="Farmer Account Profile & Activity History"
             >
               <User className="w-4 h-4 text-agri-dark" />
-              <span className="hidden sm:inline">{profile.name ? profile.name.split(' ')[0] : 'Profile'}</span>
+              <span className="hidden sm:inline">
+                {profile && profile.name ? profile.name.split(' ')[0] : 'Log In / Sign Up'}
+              </span>
             </button>
 
             {/* Language Selector */}
