@@ -1,3 +1,6 @@
+/**
+ * AgriMind Offline Crop Health Doctor & Bayesian Disease Diagnostic Engine
+ */
 import React, { useState, useRef } from 'react';
 import { Camera, Upload, Leaf, MapPin, X, AlertCircle, Info, Sparkles, CheckCircle2, RefreshCw } from 'lucide-react';
 import { CropType, GrowthStage, Language, SampleCropPreset, WeatherData } from '../types';
