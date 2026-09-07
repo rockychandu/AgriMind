@@ -37,9 +37,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'fertilizer', label: t('fertilizerRecommendation'), icon: Package },
     { id: 'irrigation', label: t('irrigationScheduling'), icon: Droplets },
     { id: 'diseaseDetection', label: t('diseaseDetection'), icon: Stethoscope },
-    { id: 'yieldPrediction', label: t('yieldPrediction'), icon: TrendingUp },
-    { id: 'expenseTracking', label: t('expenseTracking'), icon: DollarSign },
-    { id: 'profitPrediction', label: t('profitPrediction'), icon: Sparkles },
     { id: 'dashboard', label: t('farmerDashboard'), icon: LayoutDashboard },
   ];
 
@@ -95,8 +92,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Right Actions: Language & Mobile Menu Button */}
-          <div className="flex items-center space-x-3">
+          {/* Right Actions: Profile Button, Language & Mobile Menu Toggle */}
+          <div className="flex items-center space-x-2.5">
+            {/* User Profile / Auth Button */}
+            <button
+              onClick={onOpenOnboarding}
+              className="flex items-center space-x-1.5 bg-gradient-to-r from-agri-fresh to-agri-leaf text-agri-dark font-extrabold px-3 py-1.5 rounded-xl shadow-md hover:scale-105 transition-all text-xs border border-agri-yellow cursor-pointer"
+              title="Farmer Account Profile & Activity History"
+            >
+              <User className="w-4 h-4 text-agri-dark" />
+              <span className="hidden sm:inline">{profile.name ? profile.name.split(' ')[0] : 'Profile'}</span>
+            </button>
+
             {/* Language Selector */}
             <div className="relative flex items-center bg-white border-2 border-agri-fresh rounded-xl px-2.5 py-1.5 text-xs shadow-sm">
               <Globe className="w-4 h-4 text-agri-deep mr-1.5" />

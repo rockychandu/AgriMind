@@ -29,11 +29,11 @@ export const QuickActions: React.FC<QuickActionsProps> = ({ onNavigate, language
       accentColor: 'from-amber-500 to-amber-600',
     },
     {
-      id: 'profitPrediction',
+      id: 'cropRecommendation',
       icon: Sparkles,
-      title: 'Yield & Profit Simulation',
-      description: 'Simulate 1,000 Monte-Carlo market price scenarios and break-even thresholds.',
-      buttonText: 'Predict Profit',
+      title: 'Crop Recommendation Engine',
+      description: 'Match optimal Indian crops using soil test NPK, pH, temperature, and rainfall parameters.',
+      buttonText: 'Recommend Crop',
       accentColor: 'from-lime-600 to-emerald-700',
     },
     {
