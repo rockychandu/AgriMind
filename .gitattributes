@@ -1,0 +1,11 @@
+# GitHub Linguist Overrides
+# Force GitHub to recognize Python as the primary repository language
+
+agrimind/**/*.py linguist-language=Python
+agrimind/**/*.py linguist-detectable=true
+
+dist/** linguist-vendored
+node_modules/** linguist-vendored
+*.js linguist-vendored
+*.css linguist-vendored
+*.json linguist-vendored
