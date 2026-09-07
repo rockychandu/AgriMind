@@ -1,0 +1,183 @@
+import unittest
+from agrimind.data import ALL_CROPS
+from agrimind.core.base_models import SoilSample
+from agrimind.core.domain_types import SoilType
+
+class TestGeneratedBatch12(unittest.TestCase):
+    def test_case_batch_12_001(self):
+        soil = SoilSample("id_12_1", "f", None, SoilType.LOAMY, 6.1, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_002(self):
+        soil = SoilSample("id_12_2", "f", None, SoilType.LOAMY, 6.2, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_003(self):
+        soil = SoilSample("id_12_3", "f", None, SoilType.LOAMY, 6.3, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_004(self):
+        soil = SoilSample("id_12_4", "f", None, SoilType.LOAMY, 6.4, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_005(self):
+        soil = SoilSample("id_12_5", "f", None, SoilType.LOAMY, 6.5, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_006(self):
+        soil = SoilSample("id_12_6", "f", None, SoilType.LOAMY, 6.6, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_007(self):
+        soil = SoilSample("id_12_7", "f", None, SoilType.LOAMY, 6.7, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_008(self):
+        soil = SoilSample("id_12_8", "f", None, SoilType.LOAMY, 6.8, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_009(self):
+        soil = SoilSample("id_12_9", "f", None, SoilType.LOAMY, 6.9, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_010(self):
+        soil = SoilSample("id_12_10", "f", None, SoilType.LOAMY, 7.0, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_011(self):
+        soil = SoilSample("id_12_11", "f", None, SoilType.LOAMY, 7.1, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_012(self):
+        soil = SoilSample("id_12_12", "f", None, SoilType.LOAMY, 7.2, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_013(self):
+        soil = SoilSample("id_12_13", "f", None, SoilType.LOAMY, 7.3, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_014(self):
+        soil = SoilSample("id_12_14", "f", None, SoilType.LOAMY, 7.4, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_015(self):
+        soil = SoilSample("id_12_15", "f", None, SoilType.LOAMY, 7.5, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_016(self):
+        soil = SoilSample("id_12_16", "f", None, SoilType.LOAMY, 7.6, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_017(self):
+        soil = SoilSample("id_12_17", "f", None, SoilType.LOAMY, 7.7, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_018(self):
+        soil = SoilSample("id_12_18", "f", None, SoilType.LOAMY, 7.8, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_019(self):
+        soil = SoilSample("id_12_19", "f", None, SoilType.LOAMY, 7.9, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_020(self):
+        soil = SoilSample("id_12_20", "f", None, SoilType.LOAMY, 6.0, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_021(self):
+        soil = SoilSample("id_12_21", "f", None, SoilType.LOAMY, 6.1, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_022(self):
+        soil = SoilSample("id_12_22", "f", None, SoilType.LOAMY, 6.2, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_023(self):
+        soil = SoilSample("id_12_23", "f", None, SoilType.LOAMY, 6.3, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_024(self):
+        soil = SoilSample("id_12_24", "f", None, SoilType.LOAMY, 6.4, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_025(self):
+        soil = SoilSample("id_12_25", "f", None, SoilType.LOAMY, 6.5, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_026(self):
+        soil = SoilSample("id_12_26", "f", None, SoilType.LOAMY, 6.6, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_027(self):
+        soil = SoilSample("id_12_27", "f", None, SoilType.LOAMY, 6.7, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_028(self):
+        soil = SoilSample("id_12_28", "f", None, SoilType.LOAMY, 6.8, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+    def test_case_batch_12_029(self):
+        soil = SoilSample("id_12_29", "f", None, SoilType.LOAMY, 6.9, 1.0, 0.7, 30.0, 20.0, 180.0)
+        self.assertIsNotNone(soil)
+        self.assertEqual(soil.soil_type, SoilType.LOAMY)
+        self.assertGreater(soil.ph, 5.0)
+        self.assertLess(soil.ph, 9.0)
+
+if __name__ == "__main__":
+    unittest.main()
