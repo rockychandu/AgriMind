@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Compass, Sparkles, Sprout, Filter, CheckCircle2, ArrowRight, Activity, Droplets, Thermometer, ShieldCheck } from 'lucide-react';
 
 interface IndianCrop {
-  id: str;
-  name: str;
-  localName: str;
-  category: str;
-  season: str;
+  id: string;
+  name: string;
+  localName: string;
+  category: string;
+  season: string;
   optN: number;
   optP: number;
   optK: number;
@@ -16,8 +16,8 @@ interface IndianCrop {
   optRainfallMax: number;
   optTempMin: number;
   optTempMax: number;
-  yieldHa: str;
-  desc: str;
+  yieldHa: string;
+  desc: string;
 }
 
 const INDIAN_CROPS_DATABASE = [

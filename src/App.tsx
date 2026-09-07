@@ -14,20 +14,17 @@ import { SmartAdvisory } from './components/SmartAdvisory';
 import { AIChatAssistant } from './components/AIChatAssistant';
 import { FarmerDashboard } from './components/FarmerDashboard';
 import { FarmHistory } from './components/FarmHistory';
-import { OnboardingModal } from './components/OnboardingModal';
+import { AuthProfileModal } from './components/AuthProfileModal';
 import { Footer } from './components/Footer';
 
-// New Feature Modules Components
+// AgriMind Feature Engine Views
 import { CropSelectionView } from './components/CropSelectionView';
 import { SoilAnalysisView } from './components/SoilAnalysisView';
 import { CropRecommendationView } from './components/CropRecommendationView';
 import { FertilizerView } from './components/FertilizerView';
 import { IrrigationView } from './components/IrrigationView';
-import { YieldPredictionView } from './components/YieldPredictionView';
-import { ExpenseTrackingView } from './components/ExpenseTrackingView';
-import { ProfitPredictionView } from './components/ProfitPredictionView';
 
-import { ArrowRight, Leaf, Sparkles } from 'lucide-react';
+import { ArrowRight, Leaf, Sparkles, ArrowLeft } from 'lucide-react';
 
 export function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -39,6 +36,40 @@ export function App() {
   const [currentDiagnosis, setCurrentDiagnosis] = useState<DiagnosisResult | null>(null);
   const [history, setHistory] = useState<DiagnosisResult[]>([]);
   const [showOnboarding, setShowOnboarding] = useState<boolean>(false);
+
+  // Sync tab navigation with browser history API (pushState & popstate)
+  useEffect(() => {
+    const getTabFromLocation = () => {
+      const hash = window.location.hash.replace('#', '');
+      return hash || 'home';
+    };
+
+    const initialTab = getTabFromLocation();
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+
+    const handlePopState = (e: Event) => {
+      const stateTab = (e as PopStateEvent).state?.tab;
+      const targetTab = stateTab || getTabFromLocation();
+      setActiveTab(targetTab);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handlePopState);
+    };
+  }, []);
+
+  const handleNavigate = (tab: string, pushHistory: boolean = true) => {
+    setActiveTab(tab);
+    if (pushHistory) {
+      window.history.pushState({ tab }, '', `#${tab}`);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const [profile, setProfile] = useState<FarmProfile>({
     name: 'Ramesh Kumar',
@@ -132,7 +163,7 @@ export function App() {
       {/* Global Navbar */}
       <Navbar
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleNavigate}
         language={language}
         setLanguage={setLanguage}
         profile={profile}
@@ -140,16 +171,37 @@ export function App() {
         locationName={locationName}
       />
 
+      {/* Feature Navigation Sub-Header with Back Button */}
+      {activeTab !== 'home' && (
+        <div className="bg-[#123023] border-b border-agri-fresh/20 py-2.5 px-4 sm:px-8">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <button
+              onClick={() => window.history.back()}
+              className="flex items-center space-x-2 text-xs font-extrabold text-agri-yellow hover:text-white bg-white/10 hover:bg-white/20 px-3.5 py-1.5 rounded-xl transition-all border border-agri-yellow/40 shadow-sm cursor-pointer"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>← Back to Previous Feature</span>
+            </button>
+            
+            <div className="flex items-center space-x-2 text-xs text-gray-300 font-medium">
+              <span className="cursor-pointer hover:text-agri-yellow font-bold text-white" onClick={() => handleNavigate('home')}>Home</span>
+              <span>/</span>
+              <span className="text-agri-fresh font-extrabold capitalize">{activeTab}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Content Body */}
       <main className="flex-1">
         {activeTab === 'home' && (
           <>
             <Hero
-              onCheckCropClick={() => setActiveTab('diseaseDetection')}
-              onViewWeatherClick={() => setActiveTab('weather')}
+              onCheckCropClick={() => handleNavigate('diseaseDetection')}
+              onViewWeatherClick={() => handleNavigate('weather')}
               language={language}
             />
-            <QuickActions onNavigate={setActiveTab} language={language} />
+            <QuickActions onNavigate={handleNavigate} language={language} />
             <HowItWorks />
             <Benefits />
           </>
@@ -185,10 +237,6 @@ export function App() {
           )
         )}
 
-        {activeTab === 'yieldPrediction' && <YieldPredictionView />}
-        {activeTab === 'expenseTracking' && <ExpenseTrackingView />}
-        {activeTab === 'profitPrediction' && <ProfitPredictionView />}
-
         {activeTab === 'weather' && (
           <WeatherDashboard
             weatherData={weatherData || ({} as any)}
@@ -203,7 +251,7 @@ export function App() {
             latestDiagnosis={currentDiagnosis}
             weatherData={weatherData || ({} as any)}
             language={language}
-            onGoToDoctor={() => setActiveTab('diseaseDetection')}
+            onGoToDoctor={() => handleNavigate('diseaseDetection')}
           />
         )}
 
@@ -214,7 +262,7 @@ export function App() {
             latestDiagnosis={currentDiagnosis}
             historyCount={history.length}
             language={language}
-            onNavigate={setActiveTab}
+            onNavigate={handleNavigate}
           />
         )}
 
@@ -223,12 +271,11 @@ export function App() {
             history={history}
             onSelectRecord={(rec) => {
               setCurrentDiagnosis(rec);
-              setActiveTab('diseaseDetection');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              handleNavigate('diseaseDetection');
             }}
             onClearHistory={handleClearHistory}
             language={language}
-            onGoToDoctor={() => setActiveTab('diseaseDetection')}
+            onGoToDoctor={() => handleNavigate('diseaseDetection')}
           />
         )}
       </main>
@@ -244,22 +291,20 @@ export function App() {
       {/* Mobile Sticky Navigation */}
       <MobileNav
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleNavigate}
         language={language}
       />
 
-      {/* Farmer Onboarding / Profile Modal */}
-      <OnboardingModal
+      {/* Farmer Auth & Profile Dashboard Modal */}
+      <AuthProfileModal
         isOpen={showOnboarding}
         onClose={() => setShowOnboarding(false)}
+        profile={profile}
         onSaveProfile={handleSaveProfile}
-        language={language}
-        setLanguage={setLanguage}
-        currentProfile={profile}
       />
 
       {/* Footer */}
-      <Footer language={language} onNavigate={setActiveTab} />
+      <Footer language={language} onNavigate={handleNavigate} />
     </div>
   );
 }
